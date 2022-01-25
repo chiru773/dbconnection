@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE log4j:configuration SYSTEM "log4j.dtd">
+<log4j:configuration xmlns:log4j='http://jakarta.apache.org/log4j/'>
+	<!-- File(Default Encoding) -->
+	<appender name="LOG" class="org.apache.log4j.DailyRollingFileAppender">
+		<param name="File" value="/usr/local/chirubatch/logs/testdbconnection/testdbconnection.log" />
+		<param name="Append" value="true" />
+		<layout class="org.apache.log4j.PatternLayout">
+			<param name="ConversionPattern" value="%d{yyyy/MM/dd HH:mm:ss.SSS},%-5p,%-23c{1},%m%n" />
+		</layout>
+	</appender>
+	<!-- File(EUC Encoding) -->
+	<appender name="LOG_EUC" class="org.apache.log4j.DailyRollingFileAppender">
+		<param name="File" value="/usr/local/chirubatch/logs/testdbconnection/testdbconnection.log" />
+		<param name="Append" value="true" />
+		<param name="Encoding" value="EUC-JP" />
+		<layout class="org.apache.log4j.PatternLayout">
+			<param name="ConversionPattern" value="%d{yyyy/MM/dd HH:mm:ss.SSS},%-5p,%-23c{1},%m%n" />
+		</layout>
+	</appender>
+	<!-- Console(Default Encoding) -->
+	<appender name="CONSOLE" class="org.apache.log4j.ConsoleAppender">
+		<param name="Target" value="System.out" />
+		<layout class="org.apache.log4j.PatternLayout">
+			<param name="ConversionPattern" value="%d{yyyy/MM/dd HH:mm:ss.SSS},%-5p,%-23c{1},%m%n" />
+		</layout>
+	</appender>
+	<!-- Console(W31J Encoding) -->
+	<appender name="CONSOLE_W31J" class="org.apache.log4j.ConsoleAppender">
+		<param name="Target" value="System.out" />
+		<param name="Encoding" value="Windows_31J" />
+		<layout class="org.apache.log4j.PatternLayout">
+			<param name="ConversionPattern" value="%d{yyyy/MM/dd HH:mm:ss.SSS},%-5p,%-23c{1},%m%n" />
+		</layout>
+	</appender>
+
+	<!-- FATAL ERROR WARN INFO DEBUG TRACE -->
+
+	<!-- root log -->
+	<root>
+		<level value="INFO" />
+		<appender-ref ref="LOG" />
+		<!-- <appender-ref ref="LOG_EUC" /> -->
+		<appender-ref ref="CONSOLE" />
+<!--		<appender-ref ref="CONSOLE_W31J" />-->
+	</root>
+</log4j:configuration>
